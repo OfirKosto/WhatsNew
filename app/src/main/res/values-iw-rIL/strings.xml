@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">מה חדש</string>
+    <string name="my_favorites">המועדפים שלי</string>
+    <string name="category_name">שם הקטגוריה</string>
+    <string name="back">חזור</string>
+</resources>
