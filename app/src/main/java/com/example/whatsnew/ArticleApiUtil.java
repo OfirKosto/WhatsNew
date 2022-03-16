@@ -1,6 +1,7 @@
 package com.example.whatsnew;
 
-import java.lang.reflect.Array;
+import com.example.whatsnew.interfaces.IArticleApi;
+
 import java.util.ArrayList;
 
 import retrofit2.Call;

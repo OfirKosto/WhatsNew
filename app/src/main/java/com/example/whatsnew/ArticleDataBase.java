@@ -1,5 +1,7 @@
 package com.example.whatsnew;
 
+import com.example.whatsnew.interfaces.IArticlesListUser;
+
 import java.util.ArrayList;
 import java.util.Hashtable;
 

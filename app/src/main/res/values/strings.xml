@@ -3,4 +3,7 @@
     <string name="my_favorites">My Favorites</string>
     <string name="category_name">Category Name</string>
     <string name="back">Back</string>
+    <string name="title">Title</string>
+    <string name="content">Content</string>
+    <string name="error_get_data_msg">Error retrieving data, please try again.</string>
 </resources>

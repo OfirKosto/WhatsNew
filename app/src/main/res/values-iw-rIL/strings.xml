@@ -4,4 +4,7 @@
     <string name="my_favorites">המועדפים שלי</string>
     <string name="category_name">שם הקטגוריה</string>
     <string name="back">חזור</string>
+    <string name="title">כותרת</string>
+    <string name="content">תוכן</string>
+    <string name="error_get_data_msg">שיגאה בשליפת המידע, בבקשה נסה שוב.</string>
 </resources>
