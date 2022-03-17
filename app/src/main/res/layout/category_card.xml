@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textStyle="bold"
+            android:textAllCaps="false"
             android:id="@+id/category_card_button"/>
     </LinearLayout>
 

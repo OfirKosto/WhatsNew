@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.whatsnew.ApplicationContext;
 import com.example.whatsnew.Article;
 import com.example.whatsnew.ArticleDataBase;
 import com.example.whatsnew.MainActivity;
@@ -43,7 +44,7 @@ public class ArticlesDataViewModel extends ViewModel {
                 }
                 else
                 {
-                    mErrorLiveData.postValue(MainActivity.getAppContext().getResources().getString(R.string.error_get_data_msg));
+                    mErrorLiveData.postValue(ApplicationContext.getContext().getResources().getString(R.string.error_get_data_msg));
                 }
             }
         });

@@ -16,15 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.whatsnew.Article;
-import com.example.whatsnew.ArticleAdapter;
-import com.example.whatsnew.CategoryAdapter;
+import com.example.whatsnew.Adapters.ArticleAdapter;
 import com.example.whatsnew.R;
 import com.example.whatsnew.viewmodels.ArticlesDataViewModel;
-import com.example.whatsnew.viewmodels.MainScreenViewModel;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
-
-import org.jetbrains.annotations.NotNull;
+import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;
 
@@ -33,6 +30,9 @@ public class ArticlesDataFragment extends Fragment {
     private ArticlesDataViewModel mViewModel;
 
     private MaterialButton mBackBtn;
+    private MaterialTextView mCategoryNameTv;
+    private String mCategoryName;
+
     private ArrayList<Article> mArticlesList;
     private RecyclerView mArticlesListRecyclerView;
     private ArticleAdapter mArticleAdapter;
@@ -52,7 +52,7 @@ public class ArticlesDataFragment extends Fragment {
         initUi(viewRoot);
         initObservers();
 
-        getArticles(viewRoot);
+        mViewModel.getArticlesByCategory(mCategoryName.toLowerCase());
 
         return viewRoot;
     }
@@ -62,19 +62,34 @@ public class ArticlesDataFragment extends Fragment {
         mBackBtn = iRootView.findViewById(R.id.articles_data_fragment_back_btn);
         mBackBtn.setOnClickListener(v -> NavHostFragment.findNavController(this).popBackStack());
 
+
+        mArticlesListRecyclerView = iRootView.findViewById(R.id.articles_data_fragment_articles_data_rv);
         mArticleAdapter = new ArticleAdapter(mArticlesList);
         mArticlesListRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         mArticlesListRecyclerView.setHasFixedSize(true);
         mArticlesListRecyclerView.setAdapter(mArticleAdapter);
+
+        mCategoryNameTv = iRootView.findViewById(R.id.articles_data_fragment_category_name_tv);
+
+        Bundle bundle = getArguments();
+        if (bundle != null)
+        {
+            mCategoryName = bundle.getString("category");
+            mCategoryNameTv.setText(mCategoryName);
+        }
+        else
+            Snackbar.make(getView(), R.string.error_transferring_data, Snackbar.LENGTH_LONG).show();
+
     }
 
     private void initObservers() {
         mViewModel.getArticlesList().observe(getViewLifecycleOwner(), new Observer<ArrayList<Article>>() {
             @Override
             public void onChanged(ArrayList<Article> articles) {
+                mArticlesList.clear();
                 mArticlesList = articles;
-                mArticleAdapter = new ArticleAdapter(mArticlesList);
-                mArticlesListRecyclerView.setAdapter(mArticleAdapter);
+                mArticleAdapter.setArticles(mArticlesList);
+                mArticleAdapter.notifyDataSetChanged();
             }
         });
 
@@ -84,11 +99,6 @@ public class ArticlesDataFragment extends Fragment {
                 Snackbar.make(getView(), s, Snackbar.LENGTH_LONG).show();
             }
         });
-    }
-
-    private void getArticles(View iRootView) {
-        //TODO READ FROM INTENT ARTICLE CATEGORY
-//        mViewModel.getArticlesByCategory();
     }
 
 }

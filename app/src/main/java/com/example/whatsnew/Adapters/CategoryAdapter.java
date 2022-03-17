@@ -1,12 +1,17 @@
-package com.example.whatsnew;
+package com.example.whatsnew.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavHostController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.whatsnew.Category;
+import com.example.whatsnew.R;
+import com.example.whatsnew.viewmodels.MainScreenViewModel;
 import com.google.android.material.button.MaterialButton;
 
 import org.jetbrains.annotations.NotNull;
@@ -17,6 +22,19 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     private ArrayList<Category> mCategoriesList;
 
+    private CategoryListener listener;
+
+    public interface CategoryListener{
+        void onCategoryClicked(Category iCategory);
+    }
+    public void setListener(CategoryListener listener)
+    {
+        this.listener = listener;
+    }
+
+    public void setCategories(ArrayList<Category> iCategories) {
+        this.mCategoriesList = iCategories;
+    }
 
     public CategoryAdapter(ArrayList<Category> iCategoriesList){ mCategoriesList =  iCategoriesList;}
 
@@ -40,7 +58,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         return mCategoriesList.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder{
 
         private MaterialButton button;
 
@@ -48,6 +66,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             super(itemView);
 
             button = itemView.findViewById(R.id.category_card_button);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int adapterPosition = getAdapterPosition();
+                    listener.onCategoryClicked(mCategoriesList.get(adapterPosition));
+                }
+            });
+
 
         }
     }

@@ -2,13 +2,13 @@ package com.example.whatsnew.enums;
 
 public enum eCategories {
 
-    BUSINESS("business"),
-    ENTERTAINMENT("entertainment"),
-    GENERAL("general"),
-    HEALTH("health"),
-    SCIENCE("science"),
-    SPORTS("sports"),
-    TECHNOLOGY("technology");
+    BUSINESS("Business"),
+    ENTERTAINMENT("Entertainment"),
+    GENERAL("General"),
+    HEALTH("Health"),
+    SCIENCE("Science"),
+    SPORTS("Sports"),
+    TECHNOLOGY("Technology");
 
     public final String mCategory;
     private eCategories(String iCategory)

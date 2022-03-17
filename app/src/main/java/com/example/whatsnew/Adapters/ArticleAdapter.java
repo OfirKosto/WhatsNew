@@ -1,22 +1,21 @@
-package com.example.whatsnew;
+package com.example.whatsnew.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.whatsnew.Article;
+import com.example.whatsnew.R;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHolder> {
@@ -24,6 +23,10 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
     private ArrayList<Article> mArticleList;
 
     public ArticleAdapter(ArrayList<Article> iArticleList){ mArticleList = iArticleList; }
+
+    public void setArticles(ArrayList<Article> iArticlesList) {
+        this.mArticleList = iArticlesList;
+    }
 
     @NonNull
     @NotNull
@@ -43,15 +46,16 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
                 .load(article.getUrlToImage())
                 .into(holder.articlePhotoImageView);
 
-        holder.content.setText(article.getContent());
+        if(article.getContent() != null)
+            holder.content.setText(article.getContent());
+        else
+            holder.content.setText(article.getDescription());
     }
 
     @Override
     public int getItemCount() {
         return mArticleList.size();
     }
-
-
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

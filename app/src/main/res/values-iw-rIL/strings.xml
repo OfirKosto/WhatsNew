@@ -7,4 +7,5 @@
     <string name="title">כותרת</string>
     <string name="content">תוכן</string>
     <string name="error_get_data_msg">שיגאה בשליפת המידע, בבקשה נסה שוב.</string>
+    <string name="error_transferring_data">שגיאה בהעברת נתונים, בבקשה נסה שוב.</string>
 </resources>

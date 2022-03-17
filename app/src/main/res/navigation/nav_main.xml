@@ -20,7 +20,11 @@
         android:id="@+id/articlesDataFragment"
         android:name="com.example.whatsnew.fragments.ArticlesDataFragment"
         android:label="articles_data_fragment"
-        tools:layout="@layout/articles_data_fragment" />
+        tools:layout="@layout/articles_data_fragment" >
+        <argument
+            android:name="category"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/favoritesArticlesFragment"
         android:name="com.example.whatsnew.fragments.FavoritesArticlesFragment"

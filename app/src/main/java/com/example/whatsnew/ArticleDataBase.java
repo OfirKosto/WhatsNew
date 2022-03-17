@@ -2,6 +2,8 @@ package com.example.whatsnew;
 
 import com.example.whatsnew.interfaces.IArticlesListUser;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Hashtable;
 
@@ -17,7 +19,7 @@ public class ArticleDataBase {
 
     private ArticleDataBase()
     {
-
+        mArticlesHashtable = new Hashtable<>();
     }
 
     public static ArticleDataBase getInstance()
@@ -38,13 +40,16 @@ public class ArticleDataBase {
         }
         else
         {
-            ArticleApiUtil.getInstance().getArticlesByCategory(iCategory, new Callback<ArrayList<Article>>() {
+            ArticleApiUtil.getInstance().getArticlesByCategory(iCategory, new Callback<JsonGetResponse>() {
                 @Override
-                public void onResponse(Call<ArrayList<Article>> call, Response<ArrayList<Article>> response) {
+                public void onResponse(Call<JsonGetResponse> call,@NotNull Response<JsonGetResponse> response) {
                     if(response.isSuccessful())
                     {
-                        mArticlesHashtable.put(iCategory, response.body());
-                        iArticlesListUser.getList(response.body(), true);
+                        if(response.body() !=null)
+                        {
+                            mArticlesHashtable.put(iCategory, response.body().getData());
+                            iArticlesListUser.getList(response.body().getData(), true);
+                        }
                     }
                     else
                     {
@@ -53,7 +58,7 @@ public class ArticleDataBase {
                 }
 
                 @Override
-                public void onFailure(Call<ArrayList<Article>> call, Throwable t) {
+                public void onFailure(Call<JsonGetResponse> call, Throwable t) {
                     iArticlesListUser.getList(null, false);
                 }
             });

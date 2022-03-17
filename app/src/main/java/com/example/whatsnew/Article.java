@@ -16,14 +16,18 @@ public class Article {
     private String mContent;
     @SerializedName("urlToImage")
     private String mUrlToImage;
+    @SerializedName("description")
+    private String mDescription;
 
-    public Article(String iId, String iName, String iAuthor, String iTitle, String iContent, String iUrlToImage) {
+
+    public Article(String iId, String iName, String iAuthor, String iTitle, String iContent, String iUrlToImage, String iDescription) {
         this.mId = iId;
         this.mName = iName;
         this.mAuthor = iAuthor;
         this.mTitle = iTitle;
         this.mContent = iContent;
         this.mUrlToImage = iUrlToImage;
+        this.mDescription = iDescription;
     }
 
     public String getId() {
@@ -72,5 +76,13 @@ public class Article {
 
     public void setUrlToImage(String iUrlToImage) {
         this.mUrlToImage = iUrlToImage;
+    }
+
+    public String getDescription() {
+        return mDescription;
+    }
+
+    public void setDescription(String iDescription) {
+        this.mDescription = iDescription;
     }
 }

@@ -6,4 +6,5 @@
     <string name="title">Title</string>
     <string name="content">Content</string>
     <string name="error_get_data_msg">Error retrieving data, please try again.</string>
+    <string name="error_transferring_data">Error , please try again.</string>
 </resources>

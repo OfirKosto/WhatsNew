@@ -10,6 +10,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.whatsnew.R;
 import com.example.whatsnew.viewmodels.FavoritesArticlesViewModel;
@@ -24,7 +25,7 @@ public class FavoritesArticlesFragment extends Fragment {
 
     private FavoritesArticlesViewModel mViewModel;
 
-    private MaterialButton mBackBtn;
+    private Button mBackBtn;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,

@@ -37,9 +37,9 @@ public class ArticleApiUtil {
         return mArticleApiUtilInstance;
     }
 
-    public void getArticlesByCategory( String iCategory, Callback<ArrayList<Article>> iCallback)
+    public void getArticlesByCategory( String iCategory, Callback<JsonGetResponse> iCallback)
     {
-        Call<ArrayList<Article>> articlesCall = mCallService.getArticlesByCategory(iCategory, API_KEY);
+        Call<JsonGetResponse> articlesCall = mCallService.getArticlesByCategory(iCategory,"us", API_KEY);
         articlesCall.enqueue(iCallback);
     }
 

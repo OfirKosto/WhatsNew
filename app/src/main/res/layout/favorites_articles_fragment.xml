@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/my_favorites"
         android:textSize="20sp"
+        android:textStyle="bold"
         android:layout_gravity="center"/>
 
     <androidx.recyclerview.widget.RecyclerView
