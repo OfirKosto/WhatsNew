@@ -7,4 +7,6 @@
     <string name="content">Content</string>
     <string name="error_get_data_msg">Error retrieving data, please try again.</string>
     <string name="error_transferring_data">Error , please try again.</string>
+    <string name="welcome_text">Welcome to WhatsNew</string>
+    <string name="pick_category">Pick a category</string>
 </resources>
