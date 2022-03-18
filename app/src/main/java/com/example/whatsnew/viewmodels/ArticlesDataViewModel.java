@@ -1,17 +1,12 @@
 package com.example.whatsnew.viewmodels;
 
-import android.content.Context;
-import android.view.View;
-
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.whatsnew.ApplicationContext;
 import com.example.whatsnew.Article;
-import com.example.whatsnew.ArticleDataBase;
-import com.example.whatsnew.MainActivity;
+import com.example.whatsnew.database.DataBaseManager;
 import com.example.whatsnew.R;
-import com.example.whatsnew.fragments.ArticlesDataFragment;
 import com.example.whatsnew.interfaces.IArticlesListUser;
 
 import java.util.ArrayList;
@@ -35,7 +30,7 @@ public class ArticlesDataViewModel extends ViewModel {
     }
 
     public void getArticlesByCategory(String iCategory){
-        ArticleDataBase.getInstance().getArticlesByCategory(iCategory, new IArticlesListUser() {
+        DataBaseManager.getInstance().getArticlesByCategory(iCategory, new IArticlesListUser() {
             @Override
             public void getList(ArrayList<Article> articles, boolean isSuccessful) {
                 if(isSuccessful)

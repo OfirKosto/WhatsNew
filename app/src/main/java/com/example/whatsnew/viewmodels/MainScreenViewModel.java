@@ -3,7 +3,7 @@ package com.example.whatsnew.viewmodels;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.whatsnew.CategoriesProvider;
+import com.example.whatsnew.database.CategoriesProvider;
 import com.example.whatsnew.Category;
 
 import java.util.ArrayList;

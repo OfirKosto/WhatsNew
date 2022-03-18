@@ -2,8 +2,12 @@ package com.example.whatsnew;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Article {
+import java.io.Serializable;
 
+public class Article implements Serializable {
+
+    @SerializedName("url")
+    private String mUrl;
     @SerializedName("id")
     private String mId;
     @SerializedName("name")
@@ -20,7 +24,9 @@ public class Article {
     private String mDescription;
 
 
-    public Article(String iId, String iName, String iAuthor, String iTitle, String iContent, String iUrlToImage, String iDescription) {
+    public Article(String iUrl, String iId, String iName, String iAuthor, String iTitle,
+                   String iContent, String iUrlToImage, String iDescription) {
+        this.mUrl = iUrl;
         this.mId = iId;
         this.mName = iName;
         this.mAuthor = iAuthor;
@@ -28,6 +34,14 @@ public class Article {
         this.mContent = iContent;
         this.mUrlToImage = iUrlToImage;
         this.mDescription = iDescription;
+    }
+
+    public String getUrl() {
+        return mUrl;
+    }
+
+    public void setUrl(String iUrl) {
+        this.mUrl = iUrl;
     }
 
     public String getId() {

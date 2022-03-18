@@ -1,5 +1,6 @@
-package com.example.whatsnew;
+package com.example.whatsnew.database;
 
+import com.example.whatsnew.Category;
 import com.example.whatsnew.enums.eCategories;
 
 import java.util.ArrayList;
