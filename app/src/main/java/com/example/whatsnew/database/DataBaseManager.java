@@ -46,7 +46,7 @@ public class DataBaseManager {
         updateFavoriteList();
     }
 
-    public void updateFavoriteList()
+    private void updateFavoriteList()
     {
         mFavoritesArticlesList = SaveFavoritesManager.loadFromFile();
     }

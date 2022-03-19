@@ -3,6 +3,7 @@ package com.example.whatsnew.Adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -63,6 +64,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         private MaterialTextView title;
         private ShapeableImageView articlePhotoImageView;
         private MaterialTextView content;
+        private Button actionButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -70,7 +72,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
             title = itemView.findViewById(R.id.article_card_title_tv);
             articlePhotoImageView = itemView.findViewById(R.id.article_card_article_photo);
             content = itemView.findViewById(R.id.article_card_article_content);
-
+            actionButton = itemView.findViewById(R.id.article_card_favorite_btn);
         }
     }
 }
