@@ -45,4 +45,7 @@ public class ArticlesDataViewModel extends ViewModel {
         });
     }
 
+    public boolean addArticleToFavorites(Article iArticle){
+        return DataBaseManager.getInstance().addArticleToFavorite(iArticle);
+    }
 }

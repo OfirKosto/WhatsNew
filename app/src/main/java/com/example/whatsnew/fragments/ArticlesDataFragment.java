@@ -18,6 +18,8 @@ import android.view.ViewGroup;
 import com.example.whatsnew.Article;
 import com.example.whatsnew.Adapters.ArticleAdapter;
 import com.example.whatsnew.R;
+import com.example.whatsnew.enums.eFragments;
+import com.example.whatsnew.fragments.dialogs.YesNoDialogFragment;
 import com.example.whatsnew.viewmodels.ArticlesDataViewModel;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -64,9 +66,10 @@ public class ArticlesDataFragment extends Fragment {
 
 
         mArticlesListRecyclerView = iRootView.findViewById(R.id.articles_data_fragment_articles_data_rv);
-        mArticleAdapter = new ArticleAdapter(mArticlesList);
         mArticlesListRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         mArticlesListRecyclerView.setHasFixedSize(true);
+        mArticleAdapter = new ArticleAdapter(mArticlesList, eFragments.ARTICLES_DATA_FRAGMENT);
+        setArticleAdapterListener();
         mArticlesListRecyclerView.setAdapter(mArticleAdapter);
 
         mCategoryNameTv = iRootView.findViewById(R.id.articles_data_fragment_category_name_tv);
@@ -101,4 +104,25 @@ public class ArticlesDataFragment extends Fragment {
         });
     }
 
+    private void setArticleAdapterListener() {
+        mArticleAdapter.setListener(new ArticleAdapter.ActionButtonListener() {
+            @Override
+            public void onButtonClicked(Article iArticle) {
+                YesNoDialogFragment yesNoDialogFragment = new YesNoDialogFragment(getResources().getString(R.string.add_to_favorite_question), new YesNoDialogFragment.IYesNoDialogFragmentListener() {
+                    @Override
+                    public void userResponse(boolean iIsUserAccepted) {
+                        if (iIsUserAccepted) {
+                            if(mViewModel.addArticleToFavorites(iArticle)){
+                                Snackbar.make(getView(), getResources().getString(R.string.article_successfully_added), Snackbar.LENGTH_SHORT).show();
+                            }
+                            else{
+                                Snackbar.make(getView(), getResources().getString(R.string.article_is_already_in_favorites), Snackbar.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+                });
+                yesNoDialogFragment.show(getActivity().getSupportFragmentManager(), YesNoDialogFragment.getDialogTag());
+            }
+        });
+    }
 }

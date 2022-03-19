@@ -19,9 +19,12 @@ import android.widget.LinearLayout;
 import com.example.whatsnew.Adapters.ArticleAdapter;
 import com.example.whatsnew.Article;
 import com.example.whatsnew.R;
+import com.example.whatsnew.enums.eFragments;
+import com.example.whatsnew.fragments.dialogs.YesNoDialogFragment;
 import com.example.whatsnew.viewmodels.FavoritesArticlesViewModel;
 import com.example.whatsnew.viewmodels.MainScreenViewModel;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -43,6 +46,7 @@ public class FavoritesArticlesFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View viewRoot = inflater.inflate(R.layout.favorites_articles_fragment, container, false);
         mViewModel = new ViewModelProvider(this).get(FavoritesArticlesViewModel.class);
+        mFavoritesArticlesList = new ArrayList<>();
 
         initUi(viewRoot);
         initObservers();
@@ -59,9 +63,12 @@ public class FavoritesArticlesFragment extends Fragment {
         mBackBtn.setOnClickListener(v -> NavHostFragment.findNavController(this).popBackStack());
 
         mFavoritesArticlesRecyclerView = iRootView.findViewById(R.id.favorites_articles_fragment_articles_data_rv);
-        mArticleAdapter = new ArticleAdapter(mFavoritesArticlesList);
-        mFavoritesArticlesRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, true);
+        linearLayoutManager.setStackFromEnd(true);
+        mFavoritesArticlesRecyclerView.setLayoutManager(linearLayoutManager);
         mFavoritesArticlesRecyclerView.setHasFixedSize(true);
+        mArticleAdapter = new ArticleAdapter(mFavoritesArticlesList, eFragments.FAVORITES_ARTICLES_FRAGMENT);
+        setArticleAdapterListener();
         mFavoritesArticlesRecyclerView.setAdapter(mArticleAdapter);
 
     }
@@ -78,5 +85,21 @@ public class FavoritesArticlesFragment extends Fragment {
         });
     }
 
+    private void setArticleAdapterListener() {
+        mArticleAdapter.setListener(new ArticleAdapter.ActionButtonListener() {
+            @Override
+            public void onButtonClicked(Article iArticle) {
+                YesNoDialogFragment yesNoDialogFragment = new YesNoDialogFragment(getResources().getString(R.string.remove_from_favorites_question), new YesNoDialogFragment.IYesNoDialogFragmentListener() {
+                    @Override
+                    public void userResponse(boolean iIsUserAccepted) {
+                        if (iIsUserAccepted) {
+                            mViewModel.removeFromFavoritesArticlesList(iArticle);
+                        }
+                    }
+                });
+                yesNoDialogFragment.show(getActivity().getSupportFragmentManager(), YesNoDialogFragment.getDialogTag());
+            }
+        });
+    }
 
 }

@@ -6,11 +6,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.whatsnew.ApplicationContext;
 import com.example.whatsnew.Article;
 import com.example.whatsnew.R;
+import com.example.whatsnew.enums.eFragments;
+import com.example.whatsnew.fragments.ArticlesDataFragment;
+import com.example.whatsnew.fragments.MainScreenFragment;
+import com.example.whatsnew.fragments.dialogs.YesNoDialogFragment;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
 
@@ -23,10 +31,26 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
     private ArrayList<Article> mArticleList;
 
-    public ArticleAdapter(ArrayList<Article> iArticleList){ mArticleList = iArticleList; }
+    private eFragments mCurrentFragment;
+
+    public ArticleAdapter(ArrayList<Article> iArticleList, eFragments iCurrentFragment){
+        mArticleList = iArticleList;
+        mCurrentFragment = iCurrentFragment;
+    }
 
     public void setArticles(ArrayList<Article> iArticlesList) {
         this.mArticleList = iArticlesList;
+    }
+
+    public interface ActionButtonListener{
+        void onButtonClicked(Article iArticle);
+    }
+
+    private ActionButtonListener listener;
+
+    public void setListener(ActionButtonListener listener)
+    {
+        this.listener = listener;
     }
 
     @NonNull
@@ -41,16 +65,36 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
     public void onBindViewHolder(@NonNull @NotNull ArticleAdapter.ViewHolder holder, int position) {
         Article article = mArticleList.get(position);
 
+        // sets title textview
         holder.title.setText(article.getTitle());
 
+        // sets photo imageview
         Glide.with(holder.itemView.getContext())
                 .load(article.getUrlToImage())
                 .into(holder.articlePhotoImageView);
 
+        // sets content textview
         if(article.getContent() != null)
             holder.content.setText(article.getContent());
         else
             holder.content.setText(article.getDescription());
+
+        // sets the action button to the holder depends the fragment
+        if (mCurrentFragment.equals(eFragments.ARTICLES_DATA_FRAGMENT))
+        {
+            holder.bindArticlesDataFragment();
+        }
+        else if(mCurrentFragment.equals(eFragments.FAVORITES_ARTICLES_FRAGMENT))
+        {
+            holder.bindFavoritesArticlesFragment();
+        }
+        holder.actionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onButtonClicked(article);
+            }
+        });
+
     }
 
     @Override
@@ -64,7 +108,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         private MaterialTextView title;
         private ShapeableImageView articlePhotoImageView;
         private MaterialTextView content;
-        private Button actionButton;
+        private MaterialButton actionButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -73,6 +117,14 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
             articlePhotoImageView = itemView.findViewById(R.id.article_card_article_photo);
             content = itemView.findViewById(R.id.article_card_article_content);
             actionButton = itemView.findViewById(R.id.article_card_favorite_btn);
+        }
+
+        public void bindArticlesDataFragment() {
+            actionButton.setBackground(itemView.getResources().getDrawable(R.drawable.ic_baseline_full_star, itemView.getContext().getTheme()));
+        }
+
+        public void bindFavoritesArticlesFragment() {
+            actionButton.setBackground(itemView.getResources().getDrawable(R.drawable.ic_baseline_delete_image, itemView.getContext().getTheme()));
         }
     }
 }

@@ -21,12 +21,17 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="99"
+                android:layout_weight="90"
                 android:hint="@string/title"
                 android:layout_gravity="center"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:id="@+id/article_card_title_tv"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="9"/>
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="50dp"

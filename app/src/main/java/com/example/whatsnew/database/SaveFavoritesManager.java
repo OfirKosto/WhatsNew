@@ -42,7 +42,7 @@ public class SaveFavoritesManager {
             userFavorites = (ArrayList<Article>)ois.readObject();
             ois.close();
         } catch (FileNotFoundException e) {
-            userFavorites = null;
+            userFavorites = new ArrayList<>();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -56,11 +56,20 @@ public class SaveFavoritesManager {
 
         ArrayList<Article> favoritesArticlesList = loadFromFile();
 
-        if(!isContainArticleInFavorites(iArticle))
-        {
-            favoritesArticlesList.add(iArticle);
-            saveToFile(favoritesArticlesList);
-        }
+//        // check if file exist (first time of saving the file wont exist)
+//        if(favoritesArticlesList != null)
+//        {
+            if(!isContainArticleInFavorites(iArticle))
+            {
+                favoritesArticlesList.add(iArticle);
+                saveToFile(favoritesArticlesList);
+            }
+//        }
+//        else
+//        {
+//            favoritesArticlesList = new ArrayList<>();
+//            saveToFile(favoritesArticlesList);
+//        }
     }
 
     public static boolean isContainArticleInFavorites(Article iArticle)

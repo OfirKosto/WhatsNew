@@ -27,6 +27,7 @@ public class FavoritesArticlesViewModel extends ViewModel {
 
     public void removeFromFavoritesArticlesList(Article iArticle){
         DataBaseManager.getInstance().removeArticleFromFavorite(iArticle);
+        mFavoritesArticlesList.postValue(DataBaseManager.getInstance().getFavoritesArticlesList());
     }
 
 }
