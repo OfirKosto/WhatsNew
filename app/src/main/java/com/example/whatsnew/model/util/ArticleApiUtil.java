@@ -1,13 +1,16 @@
-package com.example.whatsnew;
+package com.example.whatsnew.model.util;
 
-import com.example.whatsnew.interfaces.IArticleApi;
-
-import java.util.ArrayList;
+import com.example.whatsnew.model.JsonGetResponse;
+import com.example.whatsnew.model.interfaces.IArticleApi;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+/**
+ * Singleton class that use retrofit for get requests from api.
+ */
 
 public class ArticleApiUtil {
 

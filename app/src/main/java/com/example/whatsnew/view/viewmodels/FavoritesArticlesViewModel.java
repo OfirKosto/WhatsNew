@@ -1,10 +1,10 @@
-package com.example.whatsnew.viewmodels;
+package com.example.whatsnew.view.viewmodels;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.whatsnew.Article;
-import com.example.whatsnew.database.DataBaseManager;
+import com.example.whatsnew.model.Article;
+import com.example.whatsnew.model.database.DataBaseManager;
 
 import java.util.ArrayList;
 

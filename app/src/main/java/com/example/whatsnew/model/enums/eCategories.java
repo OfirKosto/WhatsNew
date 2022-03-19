@@ -1,4 +1,4 @@
-package com.example.whatsnew.enums;
+package com.example.whatsnew.model.enums;
 
 public enum eCategories {
 

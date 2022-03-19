@@ -1,4 +1,4 @@
-package com.example.whatsnew.fragments;
+package com.example.whatsnew.view.fragments;
 
 import android.os.Bundle;
 
@@ -15,12 +15,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.whatsnew.Article;
-import com.example.whatsnew.Adapters.ArticleAdapter;
+import com.example.whatsnew.model.Article;
+import com.example.whatsnew.view.Adapters.ArticleAdapter;
 import com.example.whatsnew.R;
-import com.example.whatsnew.enums.eFragments;
-import com.example.whatsnew.fragments.dialogs.YesNoDialogFragment;
-import com.example.whatsnew.viewmodels.ArticlesDataViewModel;
+import com.example.whatsnew.model.enums.eFragments;
+import com.example.whatsnew.view.fragments.dialogs.YesNoDialogFragment;
+import com.example.whatsnew.view.viewmodels.ArticlesDataViewModel;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textview.MaterialTextView;

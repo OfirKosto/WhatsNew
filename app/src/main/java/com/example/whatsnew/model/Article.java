@@ -1,4 +1,4 @@
-package com.example.whatsnew;
+package com.example.whatsnew.model;
 
 import com.google.gson.annotations.SerializedName;
 

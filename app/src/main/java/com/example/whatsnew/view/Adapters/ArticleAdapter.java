@@ -1,23 +1,16 @@
-package com.example.whatsnew.Adapters;
+package com.example.whatsnew.view.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.whatsnew.ApplicationContext;
-import com.example.whatsnew.Article;
+import com.example.whatsnew.model.Article;
 import com.example.whatsnew.R;
-import com.example.whatsnew.enums.eFragments;
-import com.example.whatsnew.fragments.ArticlesDataFragment;
-import com.example.whatsnew.fragments.MainScreenFragment;
-import com.example.whatsnew.fragments.dialogs.YesNoDialogFragment;
+import com.example.whatsnew.model.enums.eFragments;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;

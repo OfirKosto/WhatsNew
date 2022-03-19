@@ -1,4 +1,4 @@
-package com.example.whatsnew.fragments;
+package com.example.whatsnew.view.fragments;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -14,17 +14,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
-import com.example.whatsnew.Adapters.ArticleAdapter;
-import com.example.whatsnew.Article;
+import com.example.whatsnew.view.Adapters.ArticleAdapter;
+import com.example.whatsnew.model.Article;
 import com.example.whatsnew.R;
-import com.example.whatsnew.enums.eFragments;
-import com.example.whatsnew.fragments.dialogs.YesNoDialogFragment;
-import com.example.whatsnew.viewmodels.FavoritesArticlesViewModel;
-import com.example.whatsnew.viewmodels.MainScreenViewModel;
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.whatsnew.model.enums.eFragments;
+import com.example.whatsnew.view.fragments.dialogs.YesNoDialogFragment;
+import com.example.whatsnew.view.viewmodels.FavoritesArticlesViewModel;
 
 import java.util.ArrayList;
 

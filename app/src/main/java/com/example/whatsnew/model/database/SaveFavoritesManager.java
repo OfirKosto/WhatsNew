@@ -1,7 +1,7 @@
-package com.example.whatsnew.database;
+package com.example.whatsnew.model.database;
 
-import com.example.whatsnew.ApplicationContext;
-import com.example.whatsnew.Article;
+import com.example.whatsnew.model.ApplicationContext;
+import com.example.whatsnew.model.Article;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -56,20 +56,11 @@ public class SaveFavoritesManager {
 
         ArrayList<Article> favoritesArticlesList = loadFromFile();
 
-//        // check if file exist (first time of saving the file wont exist)
-//        if(favoritesArticlesList != null)
-//        {
-            if(!isContainArticleInFavorites(iArticle))
-            {
-                favoritesArticlesList.add(iArticle);
-                saveToFile(favoritesArticlesList);
-            }
-//        }
-//        else
-//        {
-//            favoritesArticlesList = new ArrayList<>();
-//            saveToFile(favoritesArticlesList);
-//        }
+        if(!isContainArticleInFavorites(iArticle))
+        {
+            favoritesArticlesList.add(iArticle);
+            saveToFile(favoritesArticlesList);
+        }
     }
 
     public static boolean isContainArticleInFavorites(Article iArticle)

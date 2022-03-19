@@ -1,4 +1,4 @@
-package com.example.whatsnew;
+package com.example.whatsnew.model;
 
 import android.app.Application;
 import android.content.Context;

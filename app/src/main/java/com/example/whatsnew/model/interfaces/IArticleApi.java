@@ -1,13 +1,9 @@
-package com.example.whatsnew.interfaces;
+package com.example.whatsnew.model.interfaces;
 
-import com.example.whatsnew.Article;
-import com.example.whatsnew.JsonGetResponse;
-
-import java.util.ArrayList;
+import com.example.whatsnew.model.JsonGetResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface IArticleApi {

@@ -1,6 +1,6 @@
-package com.example.whatsnew.interfaces;
+package com.example.whatsnew.model.interfaces;
 
-import com.example.whatsnew.Article;
+import com.example.whatsnew.model.Article;
 
 import java.util.ArrayList;
 

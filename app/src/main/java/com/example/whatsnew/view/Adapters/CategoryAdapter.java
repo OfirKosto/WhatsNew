@@ -1,17 +1,14 @@
-package com.example.whatsnew.Adapters;
+package com.example.whatsnew.view.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.NavHostController;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.whatsnew.Category;
+import com.example.whatsnew.model.Category;
 import com.example.whatsnew.R;
-import com.example.whatsnew.viewmodels.MainScreenViewModel;
 import com.google.android.material.button.MaterialButton;
 
 import org.jetbrains.annotations.NotNull;

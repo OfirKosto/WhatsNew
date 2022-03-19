@@ -1,23 +1,22 @@
-package com.example.whatsnew.database;
+package com.example.whatsnew.model.database;
 
-import androidx.room.Room;
-
-import com.example.whatsnew.ApplicationContext;
-import com.example.whatsnew.Article;
-import com.example.whatsnew.ArticleApiUtil;
-import com.example.whatsnew.JsonGetResponse;
-import com.example.whatsnew.interfaces.IArticlesListUser;
+import com.example.whatsnew.model.Article;
+import com.example.whatsnew.model.util.ArticleApiUtil;
+import com.example.whatsnew.model.JsonGetResponse;
+import com.example.whatsnew.model.interfaces.IArticlesListUser;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+/**
+ * This Singleton class is managing the database of the application.
+ */
 
 public class DataBaseManager {
 
@@ -42,6 +41,7 @@ public class DataBaseManager {
         return mDataBaseManagerInstance;
     }
 
+    // Using initializeFavoritesData in MainActivity onCreate only.
     public void initializeFavoritesData(){
         updateFavoriteList();
     }
@@ -51,6 +51,7 @@ public class DataBaseManager {
         mFavoritesArticlesList = SaveFavoritesManager.loadFromFile();
     }
 
+    // returns false if article already in favorite list and true if is not.
     public boolean addArticleToFavorite(Article iArticle)
     {
         if(SaveFavoritesManager.isContainArticleInFavorites(iArticle))
@@ -72,14 +73,17 @@ public class DataBaseManager {
         return mFavoritesArticlesList;
     }
 
+
     public void getArticlesByCategory(String iCategory, IArticlesListUser iArticlesListUser)
     {
+        //if already got this category articles
         if (mArticlesHashtable.containsKey(iCategory))
         {
             iArticlesListUser.getList(mArticlesHashtable.get(iCategory), true);
         }
         else
         {
+            // get request using retrofit and handle the result
             ArticleApiUtil.getInstance().getArticlesByCategory(iCategory, new Callback<JsonGetResponse>() {
                 @Override
                 public void onResponse(Call<JsonGetResponse> call,@NotNull Response<JsonGetResponse> response) {

@@ -1,4 +1,4 @@
-package com.example.whatsnew;
+package com.example.whatsnew.model;
 
 public class Category {
 

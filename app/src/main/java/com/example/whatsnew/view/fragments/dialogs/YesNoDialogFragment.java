@@ -1,4 +1,4 @@
-package com.example.whatsnew.fragments.dialogs;
+package com.example.whatsnew.view.fragments.dialogs;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -2,10 +2,9 @@ package com.example.whatsnew;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.os.Bundle;
 
-import com.example.whatsnew.database.DataBaseManager;
+import com.example.whatsnew.model.database.DataBaseManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,5 +15,4 @@ public class MainActivity extends AppCompatActivity {
 
         DataBaseManager.getInstance().initializeFavoritesData();
     }
-
 }

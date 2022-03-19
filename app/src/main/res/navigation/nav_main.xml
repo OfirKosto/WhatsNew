@@ -6,7 +6,7 @@
     app:startDestination="@id/mainScreenFragment">
     <fragment
         android:id="@+id/mainScreenFragment"
-        android:name="com.example.whatsnew.fragments.MainScreenFragment"
+        android:name="com.example.whatsnew.view.fragments.MainScreenFragment"
         android:label="main_screen_fragment"
         tools:layout="@layout/main_screen_fragment" >
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/articlesDataFragment"
-        android:name="com.example.whatsnew.fragments.ArticlesDataFragment"
+        android:name="com.example.whatsnew.view.fragments.ArticlesDataFragment"
         android:label="articles_data_fragment"
         tools:layout="@layout/articles_data_fragment" >
         <argument
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoritesArticlesFragment"
-        android:name="com.example.whatsnew.fragments.FavoritesArticlesFragment"
+        android:name="com.example.whatsnew.view.fragments.FavoritesArticlesFragment"
         android:label="favorites_articles_fragment"
         tools:layout="@layout/favorites_articles_fragment" />
 </navigation>

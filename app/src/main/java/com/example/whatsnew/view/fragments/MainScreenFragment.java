@@ -1,4 +1,4 @@
-package com.example.whatsnew.fragments;
+package com.example.whatsnew.view.fragments;
 
 import android.os.Bundle;
 
@@ -15,10 +15,10 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.whatsnew.Category;
-import com.example.whatsnew.Adapters.CategoryAdapter;
+import com.example.whatsnew.model.Category;
+import com.example.whatsnew.view.Adapters.CategoryAdapter;
 import com.example.whatsnew.R;
-import com.example.whatsnew.viewmodels.MainScreenViewModel;
+import com.example.whatsnew.view.viewmodels.MainScreenViewModel;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
