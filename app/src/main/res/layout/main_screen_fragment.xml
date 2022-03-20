@@ -6,7 +6,8 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:gravity="center"
         android:text="@string/welcome_text"
         android:textSize="30sp"
@@ -15,7 +16,8 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:gravity="center"
         android:text="@string/pick_category"
         android:textSize="20sp"
@@ -24,19 +26,20 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="0dp"
+        android:layout_weight="10"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="100dp"
         android:layout_marginStart="100dp"
-        android:layout_marginBottom="100dp"
         android:id="@+id/main_screen_fragment_categories_rv"/>
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:text="@string/my_favorites"
         android:layout_gravity="center"
-        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
         android:textSize="12sp"
         android:layout_marginTop="20dp"
         android:id="@+id/main_screen_fragment_my_favorites_button"/>

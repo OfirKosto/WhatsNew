@@ -7,7 +7,8 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:text="@string/my_favorites"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -15,15 +16,18 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="620dp"
+        android:layout_height="0dp"
+        android:layout_weight="15"
         android:layout_margin="10dp"
         android:id="@+id/favorites_articles_fragment_articles_data_rv"
         />
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
         android:text="@string/back"
         android:id="@+id/favorites_articles_fragment_back_btn"/>
 
