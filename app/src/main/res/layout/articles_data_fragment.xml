@@ -8,7 +8,7 @@
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/category_name"
+        android:text="@string/category_name"
         android:layout_gravity="center"
         android:textSize="20sp"
         android:id="@+id/articles_data_fragment_category_name_tv"/>
