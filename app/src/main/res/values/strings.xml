@@ -15,4 +15,11 @@
     <string name="remove_from_favorites_question">Are you sure you want to remove this article from favorites?</string>
     <string name="article_successfully_added">Article successfully added</string>
     <string name="article_is_already_in_favorites">Article is already in favorites</string>
+    <string name="business">Business</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="general">General</string>
+    <string name="health">Health</string>
+    <string name="science">Science</string>
+    <string name="sports">Sports</string>
+    <string name="technology">Technology</string>
 </resources>

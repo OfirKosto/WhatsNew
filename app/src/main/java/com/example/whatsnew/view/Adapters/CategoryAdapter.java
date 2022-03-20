@@ -47,7 +47,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public void onBindViewHolder(@NonNull @NotNull CategoryAdapter.ViewHolder holder, int position) {
         Category category = mCategoriesList.get(position);
 
-        holder.button.setText(category.getName());
+        holder.button.setText(category.getLocalizedName());
     }
 
     @Override

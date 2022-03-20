@@ -16,4 +16,11 @@
     <string name="remove_from_favorites_question">האם אתה בטוח שאתה רוצה להסיר את הכתבה הזאת מהמועדפים?</string>
     <string name="article_successfully_added">הכתבה הוספה בהצלחה!</string>
     <string name="article_is_already_in_favorites">"הכתבה הזאת נמצאת כבר במועדפים. "</string>
+    <string name="business">עסקים</string>
+    <string name="general">כללי</string>
+    <string name="entertainment">בידור</string>
+    <string name="health">בריאות</string>
+    <string name="science">מדע</string>
+    <string name="sports">ספורט</string>
+    <string name="technology">טכנולוגיה</string>
 </resources>

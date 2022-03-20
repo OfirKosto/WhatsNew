@@ -67,6 +67,7 @@ public class MainScreenFragment extends Fragment {
             public void onCategoryClicked(Category iCategory) {
                 Bundle bundle = new Bundle();
                 bundle.putString("category", iCategory.getName());
+                bundle.putString("categoryLocalizedName", iCategory.getLocalizedName());
                 NavHostFragment.findNavController(MainScreenFragment.this).navigate(R.id.action_mainScreenFragment_to_articlesDataFragment, bundle);
             }
         });

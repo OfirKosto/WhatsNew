@@ -32,8 +32,9 @@ public class ArticlesDataFragment extends Fragment {
     private ArticlesDataViewModel mViewModel;
 
     private MaterialButton mBackBtn;
-    private MaterialTextView mCategoryNameTv;
+    private MaterialTextView mCategoryLocalizedNameTv;
     private String mCategoryName;
+    private String mCategoryLocalizedName;
 
     private ArrayList<Article> mArticlesList;
     private RecyclerView mArticlesListRecyclerView;
@@ -72,13 +73,14 @@ public class ArticlesDataFragment extends Fragment {
         setArticleAdapterListener();
         mArticlesListRecyclerView.setAdapter(mArticleAdapter);
 
-        mCategoryNameTv = iRootView.findViewById(R.id.articles_data_fragment_category_name_tv);
+        mCategoryLocalizedNameTv = iRootView.findViewById(R.id.articles_data_fragment_category_name_tv);
 
         Bundle bundle = getArguments();
         if (bundle != null)
         {
             mCategoryName = bundle.getString("category");
-            mCategoryNameTv.setText(mCategoryName);
+            mCategoryLocalizedName = bundle.getString("categoryLocalizedName");
+            mCategoryLocalizedNameTv.setText(mCategoryLocalizedName);
         }
         else
             Snackbar.make(getView(), R.string.error_transferring_data, Snackbar.LENGTH_LONG).show();

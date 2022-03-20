@@ -25,7 +25,7 @@ public class CategoriesProvider {
 
         for (String s: enumNames)
         {
-            categories.add(new Category(eCategories.valueOf(s).mCategory));
+            categories.add(new Category(s, eCategories.valueOf(s).mCategory));
         }
 
         return categories;
